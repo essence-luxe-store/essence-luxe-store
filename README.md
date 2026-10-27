@@ -1,47 +1,17 @@
-# ESSENCE LUXE - Perfumes Premium | Trujillo Peru
+# ESSENCE LUXE - Tienda Perfumes Premium - FINAL FIX
 
-Tienda online de lujo con Next.js + Supabase + Vercel.
+## FIXES INCLUIDOS EN ESTE ZIP (diferente al anterior):
+- ✅ FIX blanco y negro: filter:none !important en todas las img, fotos a color real
+- ✅ ELIMINAR perfumes: botón 🗑️ con modal confirmación, borrado masivo, limpiar agotados
+- ✅ HERO EDITABLE: tab CONFIGURAR HERO GRANDE, elige perfume para banner grande Aventus Poder Absoluto, sube imagen desde PC en color
+- ✅ Sincronización real Supabase (no localStorage)
+- ✅ Diseño premium #0B0B0B + #D4AF37 + #F2D675
 
-Paleta: #0B0B0B, #151515, #D4AF37, #F2D675, #F5F1E8
+## Palabra activación admin
+Buscador principal escribir exactamente: Snayder_NEGOCIOS2026 + Enter -> abre /admin/login
+No otorga acceso, solo abre login. Auth real Supabase.
 
-## Features
-- Catalogo con filtros marca/precio/genero/tipo/disponibilidad
-- Buscador con palabra secreta Snayder_NEGOCIOS2026 abre admin login (no otorga acceso)
-- Carrito funcional + pedidos con codigo PERF-XXXX
-- WhatsApp flotante https://wa.me/51969767077 con mensaje predefinido
-- Yape 977985930 editable + QR + copiar
-- Pago contra entrega solo Trujillo (zonas editables)
-- Panel admin protegido con Supabase Auth + RLS
-- CRUD perfumes con upload imagen desde PC a Supabase Storage (color real, sin grayscale)
-- Hero grande editable: elige perfume destacado para banner Aventus Poder Absoluto
-- Eliminar perfumes con confirmacion y borrado masivo
-- Sincronizacion realtime entre dispositivos
-
-## Setup
-1. Crear proyecto en supabase.com
-2. SQL Editor -> ejecutar supabase/schema.sql
-3. Storage -> crear bucket 'perfumes' publico + bucket 'hero' publico
-4. Auth -> Add user admin@essenceluxe.com
-5. Insertar en admin_users el uuid del usuario
-6. Clonar repo, cp .env.example .env.local, completar
-7. npm install && npm run dev
-
-## Deploy Vercel
-- Push a GitHub
-- Import en Vercel, poner env vars
-- Deploy automatico HTTPS
-
-## Estructura
-app/page.tsx -> home + catalogo + hero editable
-app/admin/* -> login, dashboard, products (con eliminar), hero-config, settings, orders
-components/* -> Header, ProductCard, Cart, WhatsAppButton
-lib/supabase.ts -> cliente
-supabase/schema.sql -> DB + RLS
-
-## Seguridad
-- RLS habilitado
-- Passwords hasheadas por Supabase Auth
-- Service role solo en server actions
-- Rate limit login
-- Validacion archivos JPG/PNG/WebP max 5MB
-- No secrets en frontend
+## Deploy
+1. Supabase: crear proyecto, SQL Editor -> ejecutar supabase/schema.sql, Storage crear buckets perfumes y hero PUBLIC
+2. Vercel: Framework Next.js (no Eve), añadir 7 env vars, Deploy
+3. Prueba: cambia precio en PC -> aparece en celular al instante

@@ -6,4 +6,5 @@ body{background:#0B0B0B;color:#F5F1E8;font-family:Inter,sans-serif}
 .gold-gradient{background:linear-gradient(135deg,#D4AF37,#F2D675)}
 .card-hover{transition:all .4s ease}
 .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(212,175,55,.15);border-color:#D4AF37 !important}
-img{filter:none !important;-webkit-filter:none !important}
+/* FIX BLANCO Y NEGRO - FORZAR COLOR REAL */
+img, .product-image, .hero-image{filter:none !important;-webkit-filter:none !important;saturate:100% !important;grayscale:0 !important}
